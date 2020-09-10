@@ -35,7 +35,7 @@ def get_data(filters):
 
 def get_sales_invoice(filters):
 	filters = [
-		["posting_date","=",today()],
+		["posting_date","=",filters.get("date")],
 		["docstatus","=",1]
 	]
 	data = []
@@ -51,7 +51,7 @@ def get_sales_invoice(filters):
 
 def get_purchase_invoice(filters):
 	filters = [
-		["posting_date","=",today()],
+		["posting_date","=",filters.get("date")],
 		["docstatus","=",1]
 	]
 	data = []
@@ -65,7 +65,7 @@ def get_purchase_invoice(filters):
 
 def get_payment_entry(filters):
 	filters = [
-		["posting_date","=",today()],
+		["posting_date","=",filters.get("date")],
 		["docstatus","=",1],
 		["payment_type","in",["Receive","Pay"]]
 	]
